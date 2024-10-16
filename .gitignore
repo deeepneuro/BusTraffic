@@ -1,5 +1,5 @@
 *
 !.gitignore
-!app/src/main/java
-!app/src/main/java**
+!https://github.com/deeepneuro/BusTraffic/blob/f6f57ef3e6261668118d1bbd9979e4f2c98f91e3/app/src/main/java
+!https://github.com/deeepneuro/BusTraffic/blob/f6f57ef3e6261668118d1bbd9979e4f2c98f91e3/app/src/main/java**
 !/.gitkeep
