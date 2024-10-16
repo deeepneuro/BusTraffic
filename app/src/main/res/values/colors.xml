@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textColorPrimary">#425F41</color>
+    <color name="textColorSecondary">#3B4661</color>
+    <color name="busStopBackGround">#D9D9D9</color>
+    <color name="whiteForFont">#FFFFFF</color>
+    <color name="splashActivity">#6EA486</color>
+
+
+</resources>

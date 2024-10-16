@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7AB695"
+    tools:context=".InfoActivity">
+
+    <FrameLayout
+        android:id="@+id/bg_vector"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginEnd="-20dp"
+        android:background="@drawable/bg_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/ivBusLine"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bus_line" />
+
+    <FrameLayout
+        android:id="@+id/frameForTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_for_tv_2"
+        app:layout_constraintEnd_toStartOf="@+id/ivBusLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBusLine">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/tvTextForBus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_for_text_2"
+                android:gravity="center"
+                android:maxWidth="129dp"
+                android:minWidth="129dp"
+                android:minHeight="50dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvTimeForBus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_for_time_2"
+                android:gravity="center"
+                android:maxWidth="129dp"
+                android:minWidth="129dp"
+                android:minHeight="50dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frameForTvRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/frame_for_tv_2"
+        app:layout_constraintEnd_toStartOf="@+id/ivBusLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameForTv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/tvTextForRace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_for_text_2"
+                android:gravity="center"
+                android:maxWidth="129dp"
+                android:minWidth="129dp"
+                android:minHeight="50dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvTimeForRace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_for_time_2"
+                android:gravity="center"
+                android:maxWidth="129dp"
+                android:minWidth="129dp"
+                android:minHeight="50dp"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frameForTvShedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_for_tv_2"
+        android:padding="6dp"
+        android:elevation="11dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBusLine"
+        app:layout_constraintEnd_toStartOf="@+id/ivBusLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameForTvRace"
+        app:layout_constraintVertical_bias="0.846">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_for_text_2"
+            android:gravity="center"
+            android:maxWidth="129dp"
+            android:minWidth="129dp"
+            android:minHeight="50dp"
+            android:text="График движения"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+    </FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingStart="6dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="6dp"
+        android:visibility="gone"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameForTvShedule"
+        app:layout_constraintEnd_toEndOf="@+id/frameForTvRace"
+        app:layout_constraintStart_toStartOf="@+id/frameForTvRace"
+        app:layout_constraintTop_toBottomOf="@+id/frameForTvRace">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent_rounded_shape"
+            android:elevation="11dp">
+
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewRoutes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_for_recycle"
+            android:clipToPadding="false"
+            android:paddingTop="7dp"
+            android:scrollbars="vertical" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

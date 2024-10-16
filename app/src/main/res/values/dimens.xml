@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="point_size">24dp</dimen>
+    <dimen name="bus_geo_num_size">62dp</dimen>
+    <dimen name="max_stop_name_width">150dp</dimen>
+</resources>

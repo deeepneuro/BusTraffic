@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7AB695"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/bg_vector"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginEnd="-20dp"
+        android:background="@drawable/bg_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="116dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toStartOf="@+id/scrollCardView"
+        app:layout_constraintTop_toBottomOf="@+id/scrollCardView">
+
+        <ImageButton
+            android:id="@+id/btnStar1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/favorite_btn_rouded"/>
+
+        <TextView
+            android:id="@+id/tvIsSelected1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/fv_btn_def_rounded"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:text="2"
+            android:textAlignment="gravity"
+            android:textColor="#FEFEFE"
+            android:textSize="38dp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="116dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout3"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout1"
+        app:layout_constraintTop_toBottomOf="@+id/scrollCardView">
+
+        <ImageButton
+            android:id="@+id/btnStar2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/favorite_btn_rouded" />
+
+        <TextView
+            android:id="@+id/tvIsSelected2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/fv_btn_def_rounded"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:textAlignment="gravity"
+            android:textColor="#FEFEFE"
+            android:textSize="38dp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="116dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="@+id/scrollCardView"
+        app:layout_constraintTop_toBottomOf="@+id/scrollCardView">
+
+        <ImageButton
+            android:id="@+id/btnStar3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/favorite_btn_rouded" />
+
+        <TextView
+            android:id="@+id/tvIsSelected3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/fv_btn_def_rounded"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:textAlignment="gravity"
+            android:textColor="#FEFEFE"
+            android:textSize="38dp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/overlayContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/dimOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000" />
+
+
+
+    </FrameLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/scrollCardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="200dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="11dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent_rounded_shape"
+            android:elevation="11dp">
+
+        </FrameLayout>
+
+        <ScrollView
+            android:id="@+id/Scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/scrollview_background"
+            android:measureAllChildren="false"
+            android:paddingStart="7dp"
+            android:paddingTop="7dp"
+            android:paddingEnd="7dp"
+            android:paddingBottom="7dp"
+            app:cardCornerRadius="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/linear_layout_background"
+                android:clipToOutline="true"
+                android:orientation="vertical"
+                android:outlineProvider="background"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="1А"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv4"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv5"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="4А"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv6"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv7"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="6А"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv8"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv9"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="10"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv10"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="16"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv11"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="101"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv12"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="102"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv13"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="103"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv14"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="104"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv15"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="105"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv16"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="106"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv17"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="107"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv18"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_blue"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="108"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+                <TextView
+                    android:id="@+id/tv19"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/textview_background_green"
+                    android:fontFamily="@font/aldrich"
+                    android:gravity="center"
+                    android:text="109"
+                    android:textAlignment="gravity"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60dp" />
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvNumChooseRoute"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/route_text"
+        android:gravity="center"
+        android:maxWidth="350dp"
+        android:maxHeight="120dp"
+        android:minWidth="300dp"
+        android:minHeight="80dp"
+        android:paddingHorizontal="20dp"
+        android:text="Выберите номер маршрута"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <View
+        android:id="@+id/touchBlocker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="13dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

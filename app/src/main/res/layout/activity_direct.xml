@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7AB695"
+    tools:context=".DirectActivity">
+
+    <FrameLayout
+        android:id="@+id/bg_vector"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="-20dp"
+        android:layout_marginEnd="-20dp"
+        android:background="@drawable/bg_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameFortvDirect1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/frame_for_tv_2"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="11dp"
+        android:padding="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameFortvDirect2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvDirect1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_for_time_3"
+            android:gravity="center"
+            android:maxWidth="299dp"
+            android:maxHeight="110dp"
+            android:minWidth="299dp"
+            android:minHeight="80dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameFortvDirect2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/frame_for_tv_2"
+        android:elevation="11dp"
+        android:padding="6dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvDirect2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_for_time_2"
+            android:gravity="center"
+            android:maxWidth="299dp"
+            android:maxHeight="90dp"
+            android:minWidth="299dp"
+            android:minHeight="80dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvRouteInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="141dp"
+        android:background="@drawable/route_text"
+        android:gravity="center"
+        android:maxWidth="299dp"
+        android:maxHeight="80dp"
+        android:minWidth="299dp"
+        android:minHeight="80dp"
+        android:text="TextView"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/frameFortvDirect1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
