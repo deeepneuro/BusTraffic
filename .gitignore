@@ -1,15 +1,35 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+# Игнорировать все файлы и директории
+*
+
+# Не игнорировать директорию app и ее содержимое
+!app/
+
+# Игнорировать все в app, кроме src
+app/*
+!app/src/
+
+# Игнорировать все в src, кроме main
+app/src/*
+!app/src/main/
+
+# Игнорировать все в main, кроме java
+app/src/main/*
+!app/src/main/java/
+
+# Игнорировать все в java, кроме com
+app/src/main/java/*
+!app/src/main/java/com/
+
+# Игнорировать все в com, кроме neurocom
+app/src/main/java/com/*
+!app/src/main/java/com/neurocom/
+
+# Игнорировать все в neurocom, кроме bustraffic
+app/src/main/java/com/neurocom/*
+!app/src/main/java/com/neurocom/bustraffic/
+
+# Не игнорировать ничего внутри bustraffic
+!app/src/main/java/com/neurocom/bustraffic/**
+
+# Не игнорировать сам файл .gitignore
+!.gitignore
