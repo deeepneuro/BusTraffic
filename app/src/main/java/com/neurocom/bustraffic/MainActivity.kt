@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     private var isAnimationFinished = false
     private var textRoute: String? = null
     private val handler = Handler(Looper.getMainLooper())
-    //переменные для inAppUpdate
+    //Переменные для inAppUpdate
     private var appUpdate : AppUpdateManager? = null
     private val REQUEST_CODE = 100
     //----------------------------------
@@ -62,12 +62,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        //инициализация аналитики
+        //Инициализация аналитики
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, null)
 
 
-        //переменные и функция для inAppUpdate
+        //Переменные и функция для inAppUpdate
         appUpdate = AppUpdateManagerFactory.create(this)
         checkAppUdate()
         //----------------------------------
@@ -177,7 +177,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             setupClickListeners()
-            //показывает затенение при клике на btnStar
+            //Затенение при клике на btnStar
             binding.dimOverlay.setOnClickListener {
                 isSelectionMode = false
                 binding.overlayContainer.visibility = View.GONE
@@ -209,7 +209,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    //проверяет количество нажатий на кнопку "избранное"
+    //Проверяет количество нажатий на кнопку "избранное"
     private fun isFirstStarClick(): Boolean {
         val isFirst = sharedPreferences.getBoolean("isFirstStarClick", true)
         if (isFirst) {
@@ -217,7 +217,7 @@ class MainActivity : AppCompatActivity() {
         }
         return isFirst
     }
-    //показываем диалог и инфой о пользовании кнопкой "избранное"
+    //Показываем диалог и инфой о пользовании кнопкой "избранное"
     private fun showInfoDialog(onDismiss: () -> Unit) {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_info, null)
 
@@ -226,7 +226,7 @@ class MainActivity : AppCompatActivity() {
             .setCancelable(false)
             .create()
 
-        // Устанавливаем фиксированный фон для диалога
+        //Устанавливаем фиксированный фон для диалога
         dialog.window?.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.shape_for_dialog))
 
         dialogView.findViewById<View>(R.id.btnUnderstand).setOnClickListener {
@@ -234,18 +234,18 @@ class MainActivity : AppCompatActivity() {
             onDismiss()
         }
 
-        // Настройка ширины диалога
+        //Настройка ширины диалога
         dialog.show()
         val displayMetrics = resources.displayMetrics
         val dialogWidth = (300 * displayMetrics.density).toInt() // 300dp
         dialog.window?.setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
-    //анимация текста при выборе в избранное
+    //Анимация текста при выборе в избранное
     private fun startStarSelection(index: Int) {
         // Блокируем клики на весь экран
         binding.touchBlocker.visibility = View.VISIBLE
 
-        // Делаем экран снова кликабельным через 2000 миллисекунд
+        //Делаем экран снова кликабельным через 2000 миллисекунд
         handler.postDelayed({
             binding.touchBlocker.visibility = View.GONE
         }, 2000)
@@ -253,23 +253,22 @@ class MainActivity : AppCompatActivity() {
         isSelectionMode = true
         currentSelectionIndex = index
 
-        // Сохраняем оригинальный текст, если еще не сохранён
+        //Сохраняем оригинальный текст, если еще не сохранён
         if (originalRouteText == null) {
             originalRouteText = "Выберите номер маршрута"
         }
 
-        // Меняем текст, чтобы он анимировался
         textRoute = "Выберите маршрут для добавления в избранное"
-        currentIndex = 0 // Сбрасываем индекс для анимации
+        currentIndex = 0 //Сбрасываем индекс для анимации
 
         // Запускаем анимацию текста
         startTextAnimation()
 
-        // Показываем overlay
+        //Показываем overlay
         binding.overlayContainer.visibility = View.VISIBLE
         binding.Scroll.bringToFront()
     }
-    //анимация текста
+    //Анимация текста
     private fun startTextAnimation() {
         timer = Timer()
         timer?.schedule(object : TimerTask() {
@@ -277,7 +276,6 @@ class MainActivity : AppCompatActivity() {
                 runOnUiThread {
                     textRoute?.let {
                         if (currentIndex < it.length) {
-                            // Постепенно добавляем символы в tvNumChooseRoute
                             binding.tvNumChooseRoute.text = it.substring(0, currentIndex + 1)
                             currentIndex++
                         } else {
@@ -289,7 +287,7 @@ class MainActivity : AppCompatActivity() {
             }
         }, 100, 40) // Задержка и интервал в 100 мс
     }
-    //анимация кнопки
+    //Анимация кнопки
     private fun animateButton(view: View, onAnimationEnd: () -> Unit) {
         view.animate().apply {
             duration = 150
@@ -312,7 +310,7 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
-    //считает количество запусков после установки
+    //Считает количество запусков после установки
     private fun isFirstLaunch(): Boolean {
         val isFirst = sharedPreferences.getBoolean("isFirstLaunch", true)
         if (isFirst) {
@@ -320,7 +318,7 @@ class MainActivity : AppCompatActivity() {
         }
         return isFirst
     }
-    //показывает диалог с дискреймером
+    //Показывает диалог с дисклеймером
     private fun showFirstLaunchInfo() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_first_launch_info, null)
 

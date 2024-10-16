@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-//дата класс с маршрутом и его направлениями, конечными точками и остановками
+//Дата класс с маршрутом и его направлениями, конечными точками и остановками
 data class Route(
     val there: List<String>,
     val back: List<String>,
@@ -20,10 +20,10 @@ data class Route(
     val durationTimeBack: Int,
 )
 
-//дата класс, который содержит в массиве маршруты
+//Дата класс, который содержит в массиве маршруты
 data class RouteSchedule(val routes: Map<String, Route>)
 
-//функция чтения JSON-файла и преобразования его в объект RouteSchedule
+//Функция чтения JSON-файла и преобразования его в объект RouteSchedule
 fun loadRouteSchedule(context: Context): RouteSchedule {
     val jsonString = context.assets.open("route_schedule.json").bufferedReader().use { it.readText() }
     val gson = Gson()

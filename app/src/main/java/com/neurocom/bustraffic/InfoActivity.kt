@@ -181,11 +181,11 @@ class InfoActivity : AppCompatActivity() {
         }
 
 
-        // настройка RecyclerView
+        // Настройка RecyclerView
 
         binding.recyclerViewRoutes.layoutManager = LinearLayoutManager(this)
 
-        // настройка click listener для tvShedule
+        // Настройка click listener для tvShedule
         binding.frameForTvShedule.setOnClickListener {
             if (!isAnimating) {
                 isAnimating = true
@@ -222,7 +222,7 @@ class InfoActivity : AppCompatActivity() {
 //        }
 //        handler.post(runnable)
 
-        //обновление позиций автобусов
+        //Обновление позиций автобусов
         handler = Handler(Looper.getMainLooper())
         runnable = object : Runnable {
             override fun run() {
@@ -235,7 +235,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-        //обновление секундомера (время до следующего рейса)
+        //Обновление секундомера (время до следующего рейса)
         timeHandler = Handler(Looper.getMainLooper())
         timeRunnable = object : Runnable {
             override fun run() {
@@ -246,12 +246,12 @@ class InfoActivity : AppCompatActivity() {
         timeHandler.post(timeRunnable)
     }
 
-    //функция анимации CardView
+    //Функция анимации CardView
     private fun toggleRecyclerViewVisibility() {
         val cardView = binding.cardView
 
         if (isCardView) {
-            // скрываем CardView
+            // Скрываем CardView
             val hideAnimator = ObjectAnimator.ofFloat(cardView, "alpha", 1f, 0f)
             hideAnimator.duration = 300
             hideAnimator.interpolator = AccelerateDecelerateInterpolator()
@@ -262,7 +262,7 @@ class InfoActivity : AppCompatActivity() {
             })
             hideAnimator.start()
         } else {
-            // Show RecyclerView
+            //RecyclerView visible
             cardView.alpha = 0f
             cardView.visibility = View.VISIBLE
             val showAnimator = ObjectAnimator.ofFloat(cardView, "alpha", 0f, 1f)
@@ -377,7 +377,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-    //функция добавления точек на линии маршрута и названия остановок
+    //Функция добавления точек на линии маршрута и названия остановок
     private fun addStopPoints(stopCount: Int, stopNames: List<String>) {
         val busLine = binding.ivBusLine
 
@@ -418,7 +418,7 @@ class InfoActivity : AppCompatActivity() {
 
 
                     // Ограничение ширины TextView
-                    val maxWidth = resources.getDimensionPixelSize(R.dimen.max_stop_name_width) // Создайте этот размер в dimens.xml
+                    val maxWidth = resources.getDimensionPixelSize(R.dimen.max_stop_name_width) //Этот размер в dimens.xml
                     stopNameTv.maxWidth = maxWidth
                     // Если текст не помещается, добавляем многоточие в конце
                     stopNameTv.ellipsize = TextUtils.TruncateAt.END

@@ -40,12 +40,12 @@ class WorkWeekendDay : AppCompatActivity() {
         when (dataNumRoute) {
             "route4", "route5", "route10" -> {
                 binding.frameForTvOffDay.apply {
-                    //setOnClickListener(null)  // Явно убираем любой слушатель кликов
+
                     isClickable = false
-                    isFocusable = false  // Добавляем для полноты отключения интерактивности
+                    isFocusable = false  //Отключения интерактивности
                 }
                 binding.tvDayOff.apply {
-                    setOnClickListener(null)  // Явно убираем любой слушатель кликов
+                    setOnClickListener(null)
                     background = ContextCompat.getDrawable(this@WorkWeekendDay, R.drawable.bg_for_day_off_tv)
                     text = getString(R.string.no_weekend_routes)
 

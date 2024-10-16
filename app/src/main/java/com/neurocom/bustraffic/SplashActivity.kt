@@ -16,7 +16,6 @@ import java.util.TimerTask
 
 class SplashActivity : AppCompatActivity() {
 
-    // Объявляем переменные
     private lateinit var binding: ActivitySplashBinding
     private var timer: Timer? = null
     private var currentIndex = 0
@@ -44,7 +43,7 @@ class SplashActivity : AppCompatActivity() {
 
 
 
-        // Переход к следующей активности через 3 секунды или по завершении анимации
+        // Переход к следующей активности
         Handler(Looper.getMainLooper()).postDelayed({
             if (isAnimationFinished) {
                 val intent = Intent(this, MainActivity::class.java)
