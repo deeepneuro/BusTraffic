@@ -42,7 +42,7 @@ class WorkWeekendDay : AppCompatActivity() {
                 binding.frameForTvOffDay.apply {
 
                     isClickable = false
-                    isFocusable = false  //Отключения интерактивности
+                    isFocusable = false  //отключение кнопки
                 }
                 binding.tvDayOff.apply {
                     setOnClickListener(null)
@@ -71,15 +71,15 @@ class WorkWeekendDay : AppCompatActivity() {
             }
         }
 
-        // Анимация нажатия и переход на новый экран для frameForTvWorkDay
+        //анимация нажатия и переход на новый экран для frameForTvWorkDay
         binding.frameForTvWorkDay.setOnClickListener {
-            it.isEnabled = false // Отключение повторного нажатия
+            it.isEnabled = false //отключение повторного нажатия
             animateAndNavigate(it, dataNumRoute, dataDirectRoute, "workDay")
         }
 
-        // Анимация нажатия и переход на новый экран для frameForTvOffDay
+        //анимация нажатия и переход на новый экран для frameForTvOffDay
         binding.frameForTvOffDay.setOnClickListener {
-            it.isEnabled = false // Отключение повторного нажатия
+            it.isEnabled = false //отключение повторного нажатия
             animateAndNavigate(it, dataNumRoute, dataDirectRoute, "offDay")
         }
     }
@@ -93,14 +93,14 @@ class WorkWeekendDay : AppCompatActivity() {
                 duration = 150
                 scaleXBy(-0.1f)
             }.withEndAction {
-                // Переход на новый экран после завершения анимации
+                //переход на новый экран после завершения анимации
                 val intent = Intent(this@WorkWeekendDay, InfoActivity::class.java).apply {
                     putExtra("keyRoute", dataNumRoute)
                     putExtra("keyDirect", dataDirectRoute)
                     putExtra("keyDay", dayType)
                 }
                 startActivity(intent)
-                view.isEnabled = true // Включение возможности нажатия после возвращения на экран
+                view.isEnabled = true //включение возможности нажатия после возвращения на экран
             }
         }
     }
