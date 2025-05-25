@@ -31,10 +31,10 @@ class DirectActivity : AppCompatActivity() {
             insets
         }
 
-        // Получение данных из предыдущей активности о номере маршрута
+        //Получение данных из предыдущей активности о номере маршрута
         val dataNumRoute = intent.getStringExtra("keyRoute")
 
-        // Загрузка данных из JSON
+        //Загрузка данных из JSON
         val routeSchedule = loadRouteSchedule(this)
         val route = routeSchedule.routes[dataNumRoute]
 
@@ -45,7 +45,7 @@ class DirectActivity : AppCompatActivity() {
         val point3 = route?.stopBackPoint?.get(0)
         val point4 = route?.stopBackPoint?.last()
 
-        // Функция удаления первых пяти символов
+        //Функция удаления первых пяти символов
         fun removeFirstFive(input: String): String {
             return input.substring(5)
         }
@@ -72,15 +72,15 @@ class DirectActivity : AppCompatActivity() {
         val directThere = "$point1 - $point2"
         val directBack = "$point2 - $point1"
 
-        // Анимация нажатия и переход на новый экран для tvDirect1
+        //Анимация нажатия и переход на новый экран для tvDirect1
         binding.frameFortvDirect1.setOnClickListener {
-            it.isEnabled = false // Отключение повторного нажатия
+            it.isEnabled = false //Отключение повторного нажатия
             animateAndNavigate(it, directThere, dataNumRoute, "there", textRoute)
         }
 
-        // Анимация нажатия и переход на новый экран для tvDirect2
+        //Анимация нажатия и переход на новый экран для tvDirect2
         binding.frameFortvDirect2.setOnClickListener {
-            it.isEnabled = false // Отключение повторного нажатия
+            it.isEnabled = false //Отключение повторного нажатия
             animateAndNavigate(it, directBack, dataNumRoute, "back", textRoute)
         }
     }
@@ -94,7 +94,7 @@ class DirectActivity : AppCompatActivity() {
                 duration = 150
                 scaleXBy(-0.1f)
             }.withEndAction {
-                // Переход на новый экран после завершения анимации
+                //Переход на новый экран после завершения анимации
                 val intent = Intent(this@DirectActivity, WorkWeekendDay::class.java).apply {
                     putExtra("keyRoute", dataNumRoute)
                     putExtra("keyDirect", direction)
@@ -102,7 +102,7 @@ class DirectActivity : AppCompatActivity() {
                     putExtra("stringTextRoute", textRoute)
                 }
                 startActivity(intent)
-                view.isEnabled = true // Включение возможности нажатия после возвращения на экран
+                view.isEnabled = true //Включение возможности нажатия после возвращения на экран
             }
         }
     }
