@@ -33,17 +33,17 @@ class SplashActivity : AppCompatActivity() {
             insets
         }
 
-        // Используем ViewBinding для доступа к элементам интерфейса
+        
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Анимация отображения текста
+        //анимация отображения текста
         stringDirectAdd = "BusTraffic"
         startTextAnimation()
 
 
 
-        // Переход к следующей активности
+        //переход к следующей активности
         Handler(Looper.getMainLooper()).postDelayed({
             if (isAnimationFinished) {
                 val intent = Intent(this, MainActivity::class.java)
@@ -53,7 +53,7 @@ class SplashActivity : AppCompatActivity() {
         }, 1100)
     }
 
-    // Функция для анимации набора текста
+    //функция для анимации набора текста
     private fun startTextAnimation() {
         timer = Timer()
         timer?.schedule(object : TimerTask() {
