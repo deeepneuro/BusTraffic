@@ -103,7 +103,7 @@ class InfoActivity : AppCompatActivity() {
             route?.stopBackPoint ?: emptyList()
         }
 
-        // Получаем durationTime из JSON
+        //получаем durationTime из JSON
         val durationTime: Int = when(dataDirectRoute){
             "there" -> route?.durationTimeThere ?: 0
             "back" -> route?.durationTimeBack ?: 0
@@ -114,7 +114,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-        // Инициализация RecyclerView
+        //инициализация RecyclerView
         binding.recyclerViewRoutes.layoutManager = LinearLayoutManager(this)
 
 
@@ -128,7 +128,7 @@ class InfoActivity : AppCompatActivity() {
             else -> emptyList()
         }
 
-        // Создание и установка адаптера для RecyclerView
+        //создание и установка адаптера для RecyclerView
         val adapter = RouteAdapter(routeTimes)
         binding.recyclerViewRoutes.adapter = adapter
 
@@ -138,7 +138,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-    // Создаем объект Bus с параметром durationTime
+    //создаем объект Bus 
         bus = Bus(directContent.map { LocalTime.parse(it, DateTimeFormatter.ofPattern("HH:mm")) }, durationTime)
 
         val currentTime = LocalTime.now()
@@ -150,7 +150,7 @@ class InfoActivity : AppCompatActivity() {
         addBusIcons(recentBuses)
 
 
-        // Функция удаления первых пяти символов
+        //функция удаления первых пяти символов
         fun removeFirstFive(input: String): String {
             return input.substring(5)
         }
@@ -181,11 +181,11 @@ class InfoActivity : AppCompatActivity() {
         }
 
 
-        // Настройка RecyclerView
+        //настройка RecyclerView
 
         binding.recyclerViewRoutes.layoutManager = LinearLayoutManager(this)
 
-        // Настройка click listener для tvShedule
+        //настройка click listener для tvShedule
         binding.frameForTvShedule.setOnClickListener {
             if (!isAnimating) {
                 isAnimating = true
@@ -222,7 +222,7 @@ class InfoActivity : AppCompatActivity() {
 //        }
 //        handler.post(runnable)
 
-        //Обновление позиций автобусов
+        //обновление позиций автобусов
         handler = Handler(Looper.getMainLooper())
         runnable = object : Runnable {
             override fun run() {
@@ -235,7 +235,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-        //Обновление секундомера (время до следующего рейса)
+        //обновление секундомера (время до следующего рейса)
         timeHandler = Handler(Looper.getMainLooper())
         timeRunnable = object : Runnable {
             override fun run() {
@@ -246,12 +246,12 @@ class InfoActivity : AppCompatActivity() {
         timeHandler.post(timeRunnable)
     }
 
-    //Функция анимации CardView
+    //функция анимации CardView
     private fun toggleRecyclerViewVisibility() {
         val cardView = binding.cardView
 
         if (isCardView) {
-            // Скрываем CardView
+            //скрываем CardView
             val hideAnimator = ObjectAnimator.ofFloat(cardView, "alpha", 1f, 0f)
             hideAnimator.duration = 300
             hideAnimator.interpolator = AccelerateDecelerateInterpolator()
@@ -262,7 +262,7 @@ class InfoActivity : AppCompatActivity() {
             })
             hideAnimator.start()
         } else {
-            //RecyclerView visible
+            //recyclerView visible
             cardView.alpha = 0f
             cardView.visibility = View.VISIBLE
             val showAnimator = ObjectAnimator.ofFloat(cardView, "alpha", 0f, 1f)
@@ -295,7 +295,7 @@ class InfoActivity : AppCompatActivity() {
     private fun updateTimeDisplays() {
         val currentTime = LocalTime.now()
 
-        // Обновляем tvTimeForBus
+        //обновляем tvTimeForBus
         val timeToNextDeparture = bus.getTimeToNextDeparture(currentTime)
         val hours = timeToNextDeparture / 3600
         val minutes = (timeToNextDeparture % 3600 / 60).toInt()
@@ -303,7 +303,7 @@ class InfoActivity : AppCompatActivity() {
         val formattedTime = String.format(Locale.US,"%02d:%02d:%02d", hours, minutes, seconds)
         binding.tvTimeForBus.text = formattedTime
 
-        // Обновляем tvTimeForRace
+        //обновляем tvTimeForRace
         val recentBuses = bus.getRecentBuses(currentTime)
         if (recentBuses.isEmpty()) {
             binding.tvTimeForRace.text = "Автобусов\nнет"
@@ -354,10 +354,10 @@ class InfoActivity : AppCompatActivity() {
         val currentTime = LocalTime.now()
         val recentBuses = bus.getRecentBuses(currentTime)
 
-        // Удаляем все существующие иконки автобусов перед добавлением новых
+        //удаляем все существующие иконки автобусов перед добавлением новых
         removeBusIcons()
 
-        // Добавляем обновленные иконки автобусов
+        //обновленные иконки автобусов
         addBusIcons(recentBuses)
     }
 
@@ -377,7 +377,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-    //Функция добавления точек на линии маршрута и названия остановок
+    //добавление точек на линии маршрута и названия остановок
     private fun addStopPoints(stopCount: Int, stopNames: List<String>) {
         val busLine = binding.ivBusLine
 
@@ -407,7 +407,7 @@ class InfoActivity : AppCompatActivity() {
 
                     binding.main.addView(pointIcon)
 
-                    // Добавление textViews с названиями остановок
+                    //добавление textViews с названиями остановок
                     val stopNameTv = TextView(this@InfoActivity)
                     stopNameTv.text = stopNames[i]
                     stopNameTv.textSize = 14f
@@ -417,10 +417,10 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-                    // Ограничение ширины TextView
-                    val maxWidth = resources.getDimensionPixelSize(R.dimen.max_stop_name_width) //Этот размер в dimens.xml
+                    //ограничение ширины TextView
+                    val maxWidth = resources.getDimensionPixelSize(R.dimen.max_stop_name_width) 
                     stopNameTv.maxWidth = maxWidth
-                    // Если текст не помещается, добавляем многоточие в конце
+                    //если текст не помещается, добавляем многоточие в конце
                     stopNameTv.ellipsize = TextUtils.TruncateAt.END
                     stopNameTv.maxLines = 1
 
@@ -429,17 +429,17 @@ class InfoActivity : AppCompatActivity() {
                         ConstraintLayout.LayoutParams.WRAP_CONTENT,
                         ConstraintLayout.LayoutParams.WRAP_CONTENT
                     )
-                    tvParams.topToTop = pointIcon.id  // Привязываем к ID точки
-                    tvParams.bottomToBottom = pointIcon.id  // Привязываем к ID точки
-                    tvParams.startToEnd = pointIcon.id  // Привязываем к ID точки
-                    tvParams.marginStart = 40 // Отступ справа от точки
+                    tvParams.topToTop = pointIcon.id  //привязываем к ID точки
+                    tvParams.bottomToBottom = pointIcon.id  //привязываем к ID точки
+                    tvParams.startToEnd = pointIcon.id  //привязываем к ID точки
+                    tvParams.marginStart = 40 //отступ справа от точки
 
 
 
 
-                    // Добавляем ограничение по правому краю
+                    //добавляем ограничение по правому краю
                     tvParams.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
-                    tvParams.horizontalBias = 0f  // Прижимаем к левой стороне
+                    tvParams.horizontalBias = 0f
 
                     val shape = GradientDrawable()
                     shape.shape = GradientDrawable.RECTANGLE
