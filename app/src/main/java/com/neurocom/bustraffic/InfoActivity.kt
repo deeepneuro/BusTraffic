@@ -119,7 +119,7 @@ class InfoActivity : AppCompatActivity() {
 
 
 
-        // Выбор данных для отображения
+        //выбор данных для отображения
         val routeTimes = when {
             dataDayRoute == "workDay" && dataDirectRoute == "there" -> routeThere
             dataDayRoute == "workDay" && dataDirectRoute == "back" -> routeBack
