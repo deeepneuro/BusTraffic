@@ -17,7 +17,7 @@ data class Bus(val schedule: List<LocalTime>, val durationTime: Int) {
         return if (nextDepartureTime > currentTime) {
             ChronoUnit.SECONDS.between(currentTime, nextDepartureTime)
         } else {
-            // Если следующий рейс на следующий день
+            //если следующий рейс на следующий день
             val minutesToMidnight = ChronoUnit.SECONDS.between(currentTime, LocalTime.MAX) + 1
             val minutesFromMidnight = ChronoUnit.SECONDS.between(LocalTime.MIN, nextDepartureTime)
             minutesToMidnight + minutesFromMidnight
